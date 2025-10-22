@@ -26,13 +26,14 @@
     .hero {
       position: relative;
       height: 70vh;
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://raw.githubusercontent.com/diegobvargasdb-bit/yamal-stats/main/yamal-hero.jpg') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                  url('https://raw.githubusercontent.com/diegobvargasdb-bit/yamal-stats/main/yamal-hero-new.jpg') center/cover no-repeat;
       border-radius: 25px;
       margin-bottom: 30px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 30px;
+      padding: 40px;
       text-align: center;
       box-shadow: 0 15px 35px rgba(0,0,0,0.4);
       animation: fadeIn 1.5s ease-out;
@@ -40,16 +41,31 @@
 
     .hero h1 {
       font-family: 'Bebas Neue', cursive;
-      font-size: 4rem;
+      font-size: 4.5rem;
       color: var(--gold);
-      text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
-      letter-spacing: 2px;
+      text-shadow: 3px 3px 8px rgba(0,0,0,0.8);
+      letter-spacing: 3px;
+      margin-bottom: 8px;
     }
 
     .hero p {
-      font-size: 1.3rem;
-      margin-top: 10px;
-      opacity: 0.9;
+      font-size: 1.4rem;
+      opacity: 0.95;
+      font-weight: 500;
+    }
+
+    .intro {
+      max-width: 900px;
+      margin: 0 auto 40px;
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.9);
+      padding: 0 20px;
+    }
+
+    .intro strong {
+      color: var(--gold);
     }
 
     .container {
@@ -179,8 +195,10 @@
     }
 
     @media (max-width: 600px) {
-      .hero { height: 50vh; }
-      .hero h1 { font-size: 2.8rem; }
+      .hero { height: 55vh; padding: 25px; }
+      .hero h1 { font-size: 3rem; }
+      .hero p { font-size: 1.1rem; }
+      .intro { font-size: 1rem; }
       .stats { grid-template-columns: 1fr; }
       .personal-info { grid-template-columns: 1fr 1fr; }
     }
@@ -193,20 +211,37 @@
     <p>Estadísticas actualizadas • 22 Octubre 2025</p>
   </div>
 
+  <!-- INTRODUCCIÓN PROFESIONAL -->
+  <div class="intro">
+    <p>
+      <strong>Lamine Yamal Nasraoui Ebana</strong> (13 de julio de 2007) es un futbolista español que juega como extremo derecho en el <strong>FC Barcelona</strong> y la <strong>selección de España</strong>. 
+      Con tan solo 17 años, se ha consolidado como uno de los mayores talentos del fútbol mundial, destacando por su regate, visión de juego y madurez táctica. 
+      Ganador de la <strong>UEFA Euro 2024</strong> y pieza clave en el doblete del Barça en la temporada 2024/25.
+    </p>
+  </div>
+
   <div class="container">
-    <!-- NUEVA SECCIÓN: NACIMIENTO Y ESTATURA -->
+    <!-- DATOS PERSONALES -->
     <div class="personal-info">
       <div class="info-card">
         <div class="info-label">Nacimiento</div>
         <div class="info-value">13/07/2007</div>
       </div>
       <div class="info-card">
+        <div class="info-label">Edad</div>
+        <div class="info-value">18 años</div>
+      </div>
+      <div class="info-card">
         <div class="info-label">Estatura</div>
         <div class="info-value">180 cm</div>
       </div>
+      <div class="info-card">
+        <div class="info-label">Posición</div>
+        <div class="info-value">Extremo derecho</div>
+      </div>
     </div>
 
-    <!-- PARTIDOS JUGADOS ARRIBA DE GOLES -->
+    <!-- ESTADÍSTICAS PRINCIPALES -->
     <div class="stats">
       <div class="stat-card">
         <div class="stat-number">119</div>
@@ -226,6 +261,7 @@
       </div>
     </div>
 
+    <!-- TÍTULOS -->
     <div class="titles">
       <h2>TÍTULOS GANADOS</h2>
       <div class="titles-grid">
