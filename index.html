@@ -26,7 +26,7 @@
     .hero {
       position: relative;
       height: 70vh;
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Lamine_Yamal_2024.jpg/800px-Lamine_Yamal_2024.jpg') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://raw.githubusercontent.com/diegobvargasdb-bit/yamal-stats/main/yamal-hero.jpg') center/cover no-repeat;
       border-radius: 25px;
       margin-bottom: 30px;
       display: flex;
@@ -65,15 +65,15 @@
     .personal-info {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 20px;
-      margin-bottom: 40px;
-      text-align: center;
+      gap: 15px;
+      margin-bottom: 30px;
     }
 
     .info-card {
       background: rgba(255,255,255,0.15);
       border-radius: 15px;
-      padding: 20px;
+      padding: 18px;
+      text-align: center;
       transition: all 0.3s ease;
     }
 
@@ -182,7 +182,7 @@
       .hero { height: 50vh; }
       .hero h1 { font-size: 2.8rem; }
       .stats { grid-template-columns: 1fr; }
-      .titles-grid { grid-template-columns: 1fr; }
+      .personal-info { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -194,23 +194,24 @@
   </div>
 
   <div class="container">
-    <!-- NUEVA SECCIÓN: INFO PERSONAL -->
+    <!-- NUEVA SECCIÓN: NACIMIENTO Y ESTATURA -->
     <div class="personal-info">
       <div class="info-card">
-        <div class="info-label">Fecha de nacimiento</div>
-        <div class="info-value">13 julio 2007</div>
+        <div class="info-label">Nacimiento</div>
+        <div class="info-value">13/07/2007</div>
       </div>
       <div class="info-card">
         <div class="info-label">Estatura</div>
         <div class="info-value">180 cm</div>
       </div>
-      <div class="info-card">
-        <div class="info-label">Partidos jugados</div>
-        <div class="info-value">119</div>
-      </div>
     </div>
 
+    <!-- PARTIDOS JUGADOS ARRIBA DE GOLES -->
     <div class="stats">
+      <div class="stat-card">
+        <div class="stat-number">119</div>
+        <div class="stat-label">Partidos jugados</div>
+      </div>
       <div class="stat-card">
         <div class="stat-number">33</div>
         <div class="stat-label">Goles</div>
@@ -250,7 +251,7 @@
     </div>
 
     <footer>
-      Datos oficiales (FC Barcelona, Transfermarkt, UEFA) | Actualizado: 22 oct 2025 | Diseño por @diegobvargasdb-bit
+      Datos oficiales | Diseño por @diegobvargasdb-bit
     </footer>
   </div>
 
