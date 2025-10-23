@@ -282,7 +282,7 @@
     <div class="gallery">
       <img src="https://pbs.twimg.com/media/Gyf1dttXkAAWE5k.jpg" alt="Yamal celebrando gol con el FC Barcelona, agosto 2025">
       <img src="https://pbs.twimg.com/media/G3jHmBZW8AAwmCI.jpg" alt="Yamal saliendo al campo con España, octubre 2025">
-      <img src="https://pbs.twimg.com/media/Gkyh0tfWMAAOPP5.jpg" alt="Yamal en acción durante entrenamiento con el Barça, febrero 2025">
+      <img src="https://pbs.twimg.com/media/G0-R8x_W8AAm3Ok.jpg" alt="Yamal en acción con el FC Barcelona, abril 2025">
     </div>
 
     <!-- DATOS PERSONALES -->
@@ -325,3 +325,132 @@
       </div>
       <div class="stat-card">
         <div class="stat-number">218</div>
+        <div class="stat-label">Chances creadas</div>
+      </div>
+    </div>
+
+    <!-- TÍTULOS -->
+    <div class="titles">
+      <h2>TÍTULOS GANADOS</h2>
+      <div class="titles-grid">
+        <div class="title-item">UEFA Euro 2024 - España</div>
+        <div class="title-item">UEFA Nations League 2025</div>
+        <div class="title-item">La Liga 2023/24 - FC Barcelona</div>
+        <div class="title-item">La Liga 2024/25 - FC Barcelona</div>
+        <div class="title-item">Copa del Rey 2024/25</div>
+        <div class="title-item">Supercopa de España 2025</div>
+      </div>
+    </div>
+
+    <!-- ESTADÍSTICAS DETALLADAS -->
+    <div class="stats-section">
+      <h2>Estadísticas Detalladas</h2>
+      <!-- Regates -->
+      <h3>Regates Completados</h3>
+      <ul class="stats-list">
+        <li>2022-2023: Clubes 5/2 (40%), Selección 0/0 (-), Total 2</li>
+        <li>2023-2024: Clubes 210/92 (43.8%), Selección 65/32 (49.2%), Total 124</li>
+        <li>2024-2025: Clubes 380/200 (52.6%), Selección 45/24 (53.3%), Total 224</li>
+        <li>2025-2026 (hasta oct.): Clubes 95/48 (50.5%), Selección 25/13 (52%), Total 61</li>
+        <li><strong>Total: Clubes 690/342 (49.6%), Selección 135/69 (51.1%), Gran Total 411</strong></li>
+      </ul>
+
+      <!-- Chances Creadas -->
+      <h3>Chances Creadas (Key Passes)</h3>
+      <ul class="stats-list">
+        <li>2022-2023: Clubes 1, Selección 0, Total 1, Por 90 Min 0.50</li>
+        <li>2023-2024: Clubes 45, Selección 15, Total 60, Por 90 Min 1.20</li>
+        <li>2024-2025: Clubes 98, Selección 18, Total 116, Por 90 Min 2.11</li>
+        <li>2025-2026 (hasta oct.): Clubes 32, Selección 9, Total 41, Por 90 Min 2.73</li>
+        <li><strong>Total: Clubes 176, Selección 42, Gran Total 218, Por 90 Min 1.45</strong></li>
+      </ul>
+    </div>
+
+    <!-- TOP PARTIDOS -->
+    <div class="top-matches">
+      <h2>Top Partidos</h2>
+      <!-- Top 10 Regates -->
+      <h3>Top 10 Partidos por Regates Completados</h3>
+      <ul class="matches-list">
+        <li>1. Barça vs Inter, UCL, May 2025: 14 regates</li>
+        <li>2. Barça vs Alavés, La Liga, Feb 2025: 11 regates</li>
+        <li>3. España vs Turquía, Nations League, Sep 2025: 8 regates</li>
+        <li>4. Barça vs Benfica, UCL, Mar 2025: 7 regates</li>
+        <li>5. Barça vs Granada, La Liga, 2024-2025: 7 regates</li>
+        <li>6. España vs Francia, Euro 2024 Final, Jul 2024: 6 regates</li>
+        <li>7. Barça vs Athletic, La Liga, Oct 2024: 6 regates</li>
+        <li>8. Barça vs Rayo, La Liga, 2024-2025: 5 regates</li>
+        <li>9. España vs Georgia, Clasif. Euro, Sep 2023: 5 regates</li>
+        <li>10. Barça vs Betis, La Liga, Ene 2025: 5 regates</li>
+      </ul>
+
+      <!-- Top 10 Ratings -->
+      <h3>Top 10 Partidos por Rating (WhoScored/Sofascore)</h3>
+      <ul class="matches-list">
+        <li>1. España vs Francia, Nations League, Sep 2025: 9.8</li>
+        <li>2. Barça vs Espanyol, La Liga, May 2025: 9.45</li>
+        <li>3. Barça vs Inter, UCL, May 2025: 9.45</li>
+        <li>4. Barça vs Alavés, La Liga, Feb 2025: 9.25</li>
+        <li>5. España vs Inglaterra, Euro 2024 Final, Jul 2024: 9.15</li>
+        <li>6. Barça vs Osasuna, La Liga, Mar 2025: 8.95</li>
+        <li>7. Barça vs Girona, La Liga, Dic 2024: 8.85</li>
+        <li>8. España vs Alemania, Euro 2024 SF, Jul 2024: 8.75</li>
+        <li>9. Barça vs Olympiacos, UCL, Oct 2025: 8.4</li>
+        <li>10. Barça vs Real Madrid, La Liga (Clásico), Abr 2025: 8.55</li>
+      </ul>
+    </div>
+
+    <!-- GRÁFICO DE REGATES -->
+    <div class="chart-container">
+      <h2>Evolución de Regates</h2>
+      <canvas id="dribblesChart"></canvas>
+    </div>
+
+    <footer>
+      Datos oficiales: Opta, WhoScored | Diseño por @diegobvargasdb-bit
+    </footer>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('dribblesChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['2022-23', '2023-24', '2024-25', '2025-26 (hasta oct.)'],
+        datasets: [{
+          label: 'Regates Completados',
+          data: [2, 124, 224, 61],
+          borderColor: '#85bb65',
+          backgroundColor: 'rgba(133, 187, 101, 0.2)',
+          tension: 0.4,
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Evolución de Regates de Lamine Yamal',
+            font: { size: 16, family: 'Bebas Neue' },
+            color: '#fff'
+          },
+          legend: { position: 'top', labels: { color: '#fff' } }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            grid: { color: 'rgba(255,255,255,0.2)' },
+            ticks: { color: '#fff' }
+          },
+          x: {
+            grid: { color: 'rgba(255,255,255,0.2)' },
+            ticks: { color: '#fff' }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
