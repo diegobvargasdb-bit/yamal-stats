@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Lamine Yamal | Estadísticas</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     :root {
       --gold: #ffd700;
       --barca-red: #a50044;
       --barca-blue: #004d98;
+      --dark-bg: #1a1a1a;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,7 +28,7 @@
     .hero {
       position: relative;
       height: 70vh;
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://raw.githubusercontent.com/diegobvargasdb-bit/yamal-stats/main/yamal-hero-new.jpg') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://pbs.twimg.com/media/G3zoon0WAAA9oQU.jpg') center/cover no-repeat;
       border-radius: 25px;
       margin-bottom: 30px;
       display: flex;
@@ -68,13 +70,37 @@
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
       background: rgba(255,255,255,0.1);
       backdrop-filter: blur(12px);
       border-radius: 20px;
       padding: 35px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .gallery {
+      margin: 40px 0;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 15px;
+      background: rgba(0,0,0,0.2);
+      border-radius: 15px;
+    }
+
+    .gallery img {
+      display: inline-block;
+      width: 250px;
+      height: 200px;
+      object-fit: cover;
+      margin-right: 15px;
+      border-radius: 10px;
+      border: 2px solid var(--gold);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.1);
     }
 
     .personal-info {
@@ -144,11 +170,11 @@
       opacity: 0.9;
     }
 
-    .titles {
+    .titles, .stats-section, .top-matches {
       margin-top: 50px;
     }
 
-    .titles h2 {
+    .titles h2, .stats-section h2, .top-matches h2 {
       font-family: 'Bebas Neue', cursive;
       font-size: 2.2rem;
       color: var(--gold);
@@ -156,13 +182,13 @@
       text-align: center;
     }
 
-    .titles-grid {
+    .titles-grid, .stats-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 18px;
     }
 
-    .title-item {
+    .title-item, .stats-table th, .stats-table td {
       background: rgba(255,215,0,0.15);
       border-radius: 15px;
       padding: 18px;
@@ -171,14 +197,37 @@
       border-left: 5px solid var(--gold);
     }
 
-    .title-item:hover {
+    .title-item:hover, .stats-table tr:hover {
       background: rgba(255,215,0,0.25);
       transform: translateY(-5px);
     }
 
-    .title-text {
-      font-weight: 600;
-      font-size: 1.05rem;
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .stats-table th {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.2rem;
+      color: var(--gold);
+      background: rgba(0,0,0,0.3);
+    }
+
+    .stats-table td {
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    .chart-container {
+      margin: 40px 0;
+      padding: 20px;
+      background: rgba(0,0,0,0.2);
+      border-radius: 15px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     footer {
@@ -198,8 +247,9 @@
       .hero h1 { font-size: 3rem; }
       .hero p { font-size: 1.1rem; }
       .intro { font-size: 1rem; }
-      .stats { grid-template-columns: 1fr; }
+      .stats, .titles-grid, .stats-grid { grid-template-columns: 1fr; }
       .personal-info { grid-template-columns: 1fr 1fr; }
+      .gallery img { width: 200px; height: 150px; }
     }
   </style>
 </head>
@@ -207,19 +257,30 @@
 
   <div class="hero">
     <h1>LAMINE YAMAL</h1>
-    <p>Estadísticas actualizadas • 22 Octubre 2025</p>
+    <p>Estadísticas actualizadas • 23 Octubre 2025</p>
   </div>
 
   <!-- INTRODUCCIÓN PROFESIONAL -->
   <div class="intro">
     <p>
       <strong>Lamine Yamal Nasraoui Ebana</strong> (13 de julio de 2007) es un futbolista español que juega como extremo derecho en el <strong>FC Barcelona</strong> y la <strong>selección de España</strong>. 
-      Con tan solo 17 años, se ha consolidado como uno de los mayores talentos del fútbol mundial, destacando por su regate, visión de juego y madurez táctica. 
+      Con tan solo 18 años, se ha consolidado como uno de los mayores talentos del fútbol mundial, destacando por su regate, visión de juego y madurez táctica. 
       Ganador de la <strong>UEFA Euro 2024</strong> y pieza clave en el doblete del Barça en la temporada 2024/25.
     </p>
   </div>
 
   <div class="container">
+    <!-- GALERÍA DE IMÁGENES -->
+    <div class="gallery">
+      <img src="https://pbs.twimg.com/media/Gyf1dttXkAAWE5k.jpg" alt="Yamal celebrando gol, agosto 2025">
+      <img src="https://pbs.twimg.com/media/G3jHmBZW8AAwmCI.jpg" alt="Yamal saliendo al campo, octubre 2025">
+      <img src="https://pbs.twimg.com/media/GhH7fsPXoAA1XMu.jpg" alt="Yamal como ícono del Barça, enero 2025">
+      <img src="https://pbs.twimg.com/media/Gkyh0tfWMAAOPP5.jpg" alt="Yamal en entrenamiento, febrero 2025">
+      <img src="https://pbs.twimg.com/media/G3zoon0WAAA9oQU.jpg" alt="Yamal con stats, octubre 2025">
+      <img src="https://pbs.twimg.com/media/GwScI3bXsAATWN6.jpg" alt="Yamal físico mejorado, julio 2025">
+      <img src="https://pbs.twimg.com/media/GqczYjDWMAAfF-y.jpg" alt="Yamal upgrade carrera, mayo 2025">
+    </div>
+
     <!-- DATOS PERSONALES -->
     <div class="personal-info">
       <div class="info-card">
@@ -243,7 +304,7 @@
     <!-- ESTADÍSTICAS PRINCIPALES -->
     <div class="stats">
       <div class="stat-card">
-        <div class="stat-number">119</div>
+        <div class="stat-number">150</div>
         <div class="stat-label">Partidos jugados</div>
       </div>
       <div class="stat-card">
@@ -251,12 +312,16 @@
         <div class="stat-label">Goles</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number">24</div>
+        <div class="stat-number">28</div>
         <div class="stat-label">Asistencias</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number">6</div>
-        <div class="stat-label">Títulos</div>
+        <div class="stat-number">411</div>
+        <div class="stat-label">Regates completados</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">218</div>
+        <div class="stat-label">Chances creadas</div>
       </div>
     </div>
 
@@ -285,10 +350,316 @@
       </div>
     </div>
 
+    <!-- ESTADÍSTICAS DETALLADAS -->
+    <div class="stats-section">
+      <h2>Estadísticas Detalladas</h2>
+      <!-- Regates -->
+      <h3>Regates Completados</h3>
+      <table class="stats-table">
+        <tr>
+          <th>Temporada</th>
+          <th>Clubes (Intentados/Completados/Tasa %)</th>
+          <th>Selección (Intentados/Completados/Tasa %)</th>
+          <th>Total Completados</th>
+        </tr>
+        <tr>
+          <td>2022-2023</td>
+          <td>5/2 (40%)</td>
+          <td>0/0 (-)</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>2023-2024</td>
+          <td>210/92 (43.8%)</td>
+          <td>65/32 (49.2%)</td>
+          <td>124</td>
+        </tr>
+        <tr>
+          <td>2024-2025</td>
+          <td>380/200 (52.6%)</td>
+          <td>45/24 (53.3%)</td>
+          <td>224</td>
+        </tr>
+        <tr>
+          <td>2025-2026 (hasta oct.)</td>
+          <td>95/48 (50.5%)</td>
+          <td>25/13 (52%)</td>
+          <td>61</td>
+        </tr>
+        <tr>
+          <td><strong>Total</strong></td>
+          <td><strong>690/342 (49.6%)</strong></td>
+          <td><strong>135/69 (51.1%)</strong></td>
+          <td><strong>411</strong></td>
+        </tr>
+      </table>
+
+      <!-- Chances Creadas -->
+      <h3>Chances Creadas (Key Passes)</h3>
+      <table class="stats-table">
+        <tr>
+          <th>Temporada</th>
+          <th>Clubes</th>
+          <th>Selección</th>
+          <th>Total</th>
+          <th>Por 90 Min</th>
+        </tr>
+        <tr>
+          <td>2022-2023</td>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+          <td>0.50</td>
+        </tr>
+        <tr>
+          <td>2023-2024</td>
+          <td>45</td>
+          <td>15</td>
+          <td>60</td>
+          <td>1.20</td>
+        </tr>
+        <tr>
+          <td>2024-2025</td>
+          <td>98</td>
+          <td>18</td>
+          <td>116</td>
+          <td>2.11</td>
+        </tr>
+        <tr>
+          <td>2025-2026 (hasta oct.)</td>
+          <td>32</td>
+          <td>9</td>
+          <td>41</td>
+          <td>2.73</td>
+        </tr>
+        <tr>
+          <td><strong>Total</strong></td>
+          <td><strong>176</strong></td>
+          <td><strong>42</strong></td>
+          <td><strong>218</strong></td>
+          <td><strong>1.45</strong></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- TOP PARTIDOS -->
+    <div class="top-matches">
+      <h2>Top Partidos</h2>
+      <!-- Top 10 Regates -->
+      <h3>Top 10 Partidos por Regates Completados</h3>
+      <table class="stats-table">
+        <tr>
+          <th>#</th>
+          <th>Partido</th>
+          <th>Competición</th>
+          <th>Fecha</th>
+          <th>Regates</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Barça vs Inter</td>
+          <td>UCL</td>
+          <td>May 2025</td>
+          <td>14</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Barça vs Alavés</td>
+          <td>La Liga</td>
+          <td>Feb 2025</td>
+          <td>11</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>España vs Turquía</td>
+          <td>Nations League</td>
+          <td>Sep 2025</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Barça vs Benfica</td>
+          <td>UCL</td>
+          <td>Mar 2025</td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Barça vs Granada</td>
+          <td>La Liga</td>
+          <td>2024-2025</td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>España vs Francia</td>
+          <td>Euro 2024 Final</td>
+          <td>Jul 2024</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Barça vs Athletic</td>
+          <td>La Liga</td>
+          <td>Oct 2024</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Barça vs Rayo</td>
+          <td>La Liga</td>
+          <td>2024-2025</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>España vs Georgia</td>
+          <td>Clasif. Euro</td>
+          <td>Sep 2023</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Barça vs Betis</td>
+          <td>La Liga</td>
+          <td>Ene 2025</td>
+          <td>5</td>
+        </tr>
+      </table>
+
+      <!-- Top 10 Ratings -->
+      <h3>Top 10 Partidos por Rating (WhoScored/Sofascore)</h3>
+      <table class="stats-table">
+        <tr>
+          <th>#</th>
+          <th>Partido</th>
+          <th>Competición</th>
+          <th>Fecha</th>
+          <th>Rating</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>España vs Francia</td>
+          <td>Nations League</td>
+          <td>Sep 2025</td>
+          <td>9.8</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Barça vs Espanyol</td>
+          <td>La Liga</td>
+          <td>May 2025</td>
+          <td>9.45</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Barça vs Inter</td>
+          <td>UCL</td>
+          <td>May 2025</td>
+          <td>9.45</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Barça vs Alavés</td>
+          <td>La Liga</td>
+          <td>Feb 2025</td>
+          <td>9.25</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>España vs Inglaterra</td>
+          <td>Euro 2024 Final</td>
+          <td>Jul 2024</td>
+          <td>9.15</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Barça vs Osasuna</td>
+          <td>La Liga</td>
+          <td>Mar 2025</td>
+          <td>8.95</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Barça vs Girona</td>
+          <td>La Liga</td>
+          <td>Dic 2024</td>
+          <td>8.85</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>España vs Alemania</td>
+          <td>Euro 2024 SF</td>
+          <td>Jul 2024</td>
+          <td>8.75</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Barça vs Olympiacos</td>
+          <td>UCL</td>
+          <td>Oct 2025</td>
+          <td>8.4</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Barça vs Real Madrid</td>
+          <td>La Liga (Clásico)</td>
+          <td>Abr 2025</td>
+          <td>8.55</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- GRÁFICO DE REGATES -->
+    <div class="chart-container">
+      <h2>Evolución de Regates</h2>
+      <canvas id="dribblesChart"></canvas>
+    </div>
+
     <footer>
-      Datos oficiales | Diseño por @diegobvargasdb-bit
+      Datos oficiales: Opta, WhoScored | Diseño por @diegobvargasdb-bit
     </footer>
   </div>
 
+  <script>
+    const ctx = document.getElementById('dribblesChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['2022-23', '2023-24', '2024-25', '2025-26 (hasta oct.)'],
+        datasets: [{
+          label: 'Regates Completados',
+          data: [2, 124, 224, 61],
+          borderColor: '#85bb65',
+          backgroundColor: 'rgba(133, 187, 101, 0.2)',
+          tension: 0.4,
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Evolución de Regates de Lamine Yamal',
+            font: { size: 16, family: 'Bebas Neue' },
+            color: '#fff'
+          },
+          legend: { position: 'top', labels: { color: '#fff' } }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            grid: { color: 'rgba(255,255,255,0.2)' },
+            ticks: { color: '#fff' }
+          },
+          x: {
+            grid: { color: 'rgba(255,255,255,0.2)' },
+            ticks: { color: '#fff' }
+          }
+        }
+      }
+    });
+  </script>
 </body>
 </html>
